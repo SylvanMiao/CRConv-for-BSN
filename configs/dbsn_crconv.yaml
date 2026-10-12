@@ -1,0 +1,25 @@
+model:
+  in_channels: 1
+  out_channels: 1
+  base_channels: 128
+  blocks: 9
+  center_mode: kernel_softmax
+  temperature: 1.0
+data:
+  train_csv: ../data/train.csv
+  val_csv: ../data/val.csv
+  patch_size: 128
+  batch_size: 8
+  workers: 4
+  repeat: 2
+  intensity_max: null
+training:
+  epochs: 100
+  lr: 0.0001
+  seed: 42
+  objective: revisible
+  alpha: 1.0
+  beta_start: 2.0
+  beta_end: 20.0
+  warm_fraction: 0.4
+output: ../runs/dbsn_crconv_seed42
